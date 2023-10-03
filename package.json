@@ -1,0 +1,39 @@
+{
+  "name": "react-electron-test",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "electron ./src/electron/main.ts",
+    "build": "electron-builder build",
+    "dev": "vite",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview",
+    "electron:serve": "concurrently -k \"cross-env BROWSER=none npm run dev \" \"npm start --trace-warnings \"",
+    "electron:build": "npm run build && electron-builder -c.extraMetadata.main=build/main.ts",
+    "electron:start": "wait-on http://localhost:3000 && electron ."
+  },
+  "dependencies": {
+    "electron-settings": "^4.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "concurrently": "^8.2.1",
+    "cross-env": "^7.0.3",
+    "electron": "^26.2.1",
+    "electron-builder": "^24.6.4",
+    "electron-is-dev": "^2.0.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.5",
+    "wait-on": "^7.0.1"
+  }
+}
